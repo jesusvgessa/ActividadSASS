@@ -1,0 +1,94 @@
+@import "components/margen";
+
+//6 variables
+$ancho : 1024px;
+$color-letra : black;
+$color-titulos : blue;
+$color-hover : grey;
+$altura : 504px;
+$centrado : 0 auto;
+$mayus : uppercase;
+
+body{
+    background-color: rgb(133, 224, 133);
+}
+
+@function reducir($tam,$num){
+    @return ($tam/$num);
+}
+
+.contenedor{
+    width: $ancho;
+    margin: $centrado;
+
+    .contenedor1{
+        width: reducir($ancho, 2);
+        margin: $centrado;
+
+        h3{
+            text-align: center;
+        }
+    }
+
+    .contenedor2{
+        width: reducir($ancho, 3);
+        margin: $centrado;
+
+        ul{
+            list-style: none;
+
+            li{
+                display: inline-block;
+                padding: 2em;
+                background-color: orange;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: orangered;
+                    color: $color-hover;
+                }
+            }
+        }
+    }
+}
+
+h1,h2,h3,h4{
+    color: $color-titulos;
+    text-transform: $mayus;
+}
+
+p{
+    color: $color-letra;
+}
+
+// .contenedor-con-altura{
+//     @extend .contenedor;
+//     height: $altura;
+// }
+
+// .mitad{
+//     width: ($ancho/2)px;
+// }
+
+// @function partir($tam,$num_partes){
+//     @return ($tam/$num_partes);
+// }
+
+// .decimo{
+//     width: partir($ancho,10);
+// }
+
+// @for $p from 2 through 12{
+//     .col-#{$p}{
+//         width: 100/$p+"%";
+//     }
+// }
+
+// $p : 2;
+
+// @while $p <=12{
+//     .col-while-#{$p} {
+//         width: 100/$p+"%";
+//     }
+//     $p:$p+1;
+// }

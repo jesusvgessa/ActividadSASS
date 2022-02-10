@@ -1,0 +1,45 @@
+.menu {
+  margin: 0;
+}
+
+body {
+  background-color: #85e085;
+}
+
+.contenedor {
+  width: 1024px;
+  margin: 0 auto;
+}
+.contenedor .contenedor1 {
+  width: 512px;
+  margin: 0 auto;
+}
+.contenedor .contenedor1 h3 {
+  text-align: center;
+}
+.contenedor .contenedor2 {
+  width: 341.3333333333px;
+  margin: 0 auto;
+}
+.contenedor .contenedor2 ul {
+  list-style: none;
+}
+.contenedor .contenedor2 ul li {
+  display: inline-block;
+  padding: 2em;
+  background-color: orange;
+  cursor: pointer;
+}
+.contenedor .contenedor2 ul li:hover {
+  background-color: orangered;
+  color: grey;
+}
+
+h1, h2, h3, h4 {
+  color: blue;
+  text-transform: uppercase;
+}
+
+p {
+  color: black;
+}
