@@ -1,91 +1,122 @@
+//2 includes
 @import "components/margen";
-
+@import "components/footer";
 //6 variables
-$ancho : 1024px;
-$color-letra : black;
-$color-titulos : blue;
-$color-hover : grey;
-$altura : 504px;
-$centrado : 0 auto;
-$mayus : uppercase;
-
-body{
+$ancho: 1024px;
+$color-letra: black;
+$color-titulos: blue;
+$color-hover: grey;
+$altura: 504px;
+$centrado: 0 auto;
+$mayus: uppercase;
+$celda: 0.2em;
+$colores: white,
+yellow,
+purple;
+body {
     background-color: rgb(133, 224, 133);
 }
 
-@function reducir($tam,$num){
-    @return ($tam/$num);
+//2 funciones
+@function reducir($tam, $divisor) {
+    @return ($tam/$divisor);
 }
 
-.contenedor{
+@function aumento($padding, $tamanio) {
+    @return ($padding+($tamanio/3));
+}
+
+//6 selectores
+.contenedor {
     width: $ancho;
     margin: $centrado;
-
-    .contenedor1{
+    .contenedor1 {
         width: reducir($ancho, 2);
         margin: $centrado;
-
-        h3{
+        h3 {
             text-align: center;
         }
     }
-
-    .contenedor2{
+    .contenedor2 {
         width: reducir($ancho, 3);
         margin: $centrado;
-
-        ul{
-            list-style: none;
-
-            li{
+        ul {
+            // list-style: none;
+            li {
                 display: inline-block;
                 padding: 2em;
                 background-color: orange;
                 cursor: pointer;
-
-                &:hover{
+                &:hover {
                     background-color: orangered;
                     color: $color-hover;
                 }
             }
         }
     }
+    .contenedor3 {
+        width: reducir($ancho, 0.8);
+        background-color: aquamarine;
+        text-align: center;
+        padding: 2em;
+        table {
+            margin: $centrado;
+            //2 bucle
+            @for $p from 0 through 12 {
+                .td#{$p} {
+                    padding: aumento($celda, $p);
+                }
+            }
+            @for $i from 1 through 3 {
+                .tr#{$i} {
+                    color: nth($colores, $i);
+                }
+            }
+            td {
+                border: 1px solid black;
+            }
+        }
+    }
 }
 
-h1,h2,h3,h4{
+h1,
+h2,
+h3,
+h4 {
     color: $color-titulos;
     text-transform: $mayus;
 }
 
-p{
+p {
     color: $color-letra;
+}
+
+//1 mixin
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 // .contenedor-con-altura{
 //     @extend .contenedor;
 //     height: $altura;
 // }
-
 // .mitad{
 //     width: ($ancho/2)px;
 // }
-
 // @function partir($tam,$num_partes){
 //     @return ($tam/$num_partes);
 // }
-
 // .decimo{
 //     width: partir($ancho,10);
 // }
-
 // @for $p from 2 through 12{
 //     .col-#{$p}{
 //         width: 100/$p+"%";
 //     }
 // }
-
 // $p : 2;
-
 // @while $p <=12{
 //     .col-while-#{$p} {
 //         width: 100/$p+"%";
